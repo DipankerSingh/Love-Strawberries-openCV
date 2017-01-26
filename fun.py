@@ -78,10 +78,12 @@ def find_strawberry(image):
     # dots
     # Blurs an image using a Gaussian filter. input, kernel size, how much to filter, empty)
     image_blur = cv2.GaussianBlur(image, (7, 7), 0)
-    # t unlike RGB, HSV separates luma, or the image intensity, from
+    cv2.imwrite('image_blur.jpg', image_blur)
+    # unlike RGB, HSV separates luma, or the image intensity, from
     # chroma or the color information.
     # just want to focus on color, segmentation
     image_blur_hsv = cv2.cvtColor(image_blur, cv2.COLOR_RGB2HSV)
+    cv2.imwrite('image_blur_hsv.jpg', image_blur_hsv)
     #For HSV, Hue range is [0,179], Saturation range is [0,255] and Value range is [0,255].
     # Filter by colour
     # 0-10 hue
